@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		070D3A9B207AA27300B7026D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3A9A207AA27300B7026D /* AppDelegate.swift */; };
-		070D3A9D207AA27300B7026D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3A9C207AA27300B7026D /* ViewController.swift */; };
 		070D3AA0207AA27300B7026D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070D3A9E207AA27300B7026D /* Main.storyboard */; };
 		070D3AA2207AA27500B7026D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 070D3AA1207AA27500B7026D /* Assets.xcassets */; };
 		070D3AA5207AA27500B7026D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 070D3AA3207AA27500B7026D /* LaunchScreen.storyboard */; };
 		070D3AB0207AA27500B7026D /* DemintiaPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3AAF207AA27500B7026D /* DemintiaPhoneTests.swift */; };
 		070D3ABB207AA27500B7026D /* DemintiaPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3ABA207AA27500B7026D /* DemintiaPhoneUITests.swift */; };
+		070D3AC9207AA33E00B7026D /* ImagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3AC8207AA33E00B7026D /* ImagesController.swift */; };
+		070D3ACD207AB36200B7026D /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3ACC207AB36200B7026D /* ImageViewCell.swift */; };
+		070D3ACF207AB87C00B7026D /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3ACE207AB87C00B7026D /* Contact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		070D3A97207AA27300B7026D /* DemintiaPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemintiaPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		070D3A9A207AA27300B7026D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		070D3A9C207AA27300B7026D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		070D3A9F207AA27300B7026D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		070D3AA1207AA27500B7026D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		070D3AA4207AA27500B7026D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		070D3AB6207AA27500B7026D /* DemintiaPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemintiaPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		070D3ABA207AA27500B7026D /* DemintiaPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemintiaPhoneUITests.swift; sourceTree = "<group>"; };
 		070D3ABC207AA27500B7026D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		070D3AC8207AA33E00B7026D /* ImagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesController.swift; sourceTree = "<group>"; };
+		070D3ACC207AB36200B7026D /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		070D3ACE207AB87C00B7026D /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				070D3A9A207AA27300B7026D /* AppDelegate.swift */,
-				070D3A9C207AA27300B7026D /* ViewController.swift */,
 				070D3A9E207AA27300B7026D /* Main.storyboard */,
+				070D3ACE207AB87C00B7026D /* Contact.swift */,
+				070D3AC8207AA33E00B7026D /* ImagesController.swift */,
+				070D3ACC207AB36200B7026D /* ImageViewCell.swift */,
 				070D3AA1207AA27500B7026D /* Assets.xcassets */,
 				070D3AA3207AA27500B7026D /* LaunchScreen.storyboard */,
 				070D3AA6207AA27500B7026D /* Info.plist */,
@@ -256,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				070D3A9D207AA27300B7026D /* ViewController.swift in Sources */,
+				070D3ACF207AB87C00B7026D /* Contact.swift in Sources */,
+				070D3ACD207AB36200B7026D /* ImageViewCell.swift in Sources */,
+				070D3AC9207AA33E00B7026D /* ImagesController.swift in Sources */,
 				070D3A9B207AA27300B7026D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
