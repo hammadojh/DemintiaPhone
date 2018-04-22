@@ -16,7 +16,7 @@ fileprivate var currentImageIndex = 0 // the index of the current image to show
 
 // Data Structure
 private var contacts = [Contact]()
-private var contactsImages = [(Contact,String)]()
+private var contactsImages = [(Contact,ContactImage)]()
 
 class ImagesController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -24,14 +24,18 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
         super.viewDidLoad()
         
         // read contacts
-        contacts.append(Contact(name: "Ali", phone: "3033123112", imagesURL: ["moh_1","moh_2"]))
-        contacts.append(Contact(name: "Tom", phone: "3039287382", imagesURL: ["tom_1","tom_2"]))
-        contacts.append(Contact(name: "Obama", phone: "3039284324", imagesURL: ["obama_1","obama_2"]))
-        contacts.append(Contact(name: "Jeff", phone: "3039288922", imagesURL: ["jeff_1","jeff_2"]))
+        
+        contacts.append(Contact(name: "Ali", phone: "3033123112", contactImages: [ContactImage(imageURL: "moh_1", date: "1997"),ContactImage(imageURL: "moh_2", date: "2010")]))
+            
+        contacts.append(Contact(name: "Tom", phone: "3039287382", contactImages: [ContactImage(imageURL: "tom_1", date: "1997"),ContactImage(imageURL: "tom_2", date: "2010")]))
+        
+        contacts.append(Contact(name: "Obama", phone: "3039284324", contactImages: [ContactImage(imageURL: "obama_1", date: "1997"),ContactImage(imageURL: "obama_2", date: "2010")]))
+        
+        contacts.append(Contact(name: "Jeff", phone: "3039288922", contactImages: [ContactImage(imageURL: "jeff_1", date: "1997"),ContactImage(imageURL: "jeff_2", date: "2010")]))
         
         // initialzie contactsImages
         for contact in contacts {
-            for image in contact.imagesURL {
+            for image in contact.contactImages {
                 contactsImages.append((contact,image))
             }
         }
@@ -44,15 +48,16 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
         // Dispose of any resources that can be recreated.
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        
+        if let indexPath = self.collectionView?.indexPath(for: sender as! ImageViewCell){
+            let nextScreen = segue.destination as? ContactDetailsViewController
+            nextScreen?.contactImage = contactsImages[indexPath.item]
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -66,10 +71,11 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageViewCell
         
         cell.backgroundColor = UIColor.black
-        if let image = UIImage(named: contactsImages[indexPath.item].1){
+        if let image = UIImage(named: contactsImages[indexPath.item].1.imageURL!){
             cell.image.image = image
         }
         
@@ -78,39 +84,13 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
     
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "showContactSeg", sender: self.collectionView?.cellForItem(at: indexPath))
+        
     }
-    */
-    
-    
+
     // MARK: UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

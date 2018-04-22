@@ -13,13 +13,12 @@ class Contact {
     
     var name:String?
     var phone:String?
-    var imagesURL:[String]
+    var contactImages:[ContactImage]
     
-    init(name:String,phone:String,imagesURL:[String]) {
+    init(name:String,phone:String,contactImages:[ContactImage]) {
         self.name = name
         self.phone = phone
-        self.imagesURL = imagesURL
+        self.contactImages = contactImages
     }
-    
     
 }
