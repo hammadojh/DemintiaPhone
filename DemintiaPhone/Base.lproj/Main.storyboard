@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HV8-lX-lEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128.8000000000002" y="107.49625187406298"/>
+            <point key="canvasLocation" x="2074" y="108"/>
         </scene>
         <!--Images History Table View Controller-->
         <scene sceneID="b4R-2f-y2s">
@@ -165,7 +165,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYH-x0-RVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2880.8000000000002" y="109.29535232383809"/>
+            <point key="canvasLocation" x="2830" y="108"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LEm-T6-DSo">
