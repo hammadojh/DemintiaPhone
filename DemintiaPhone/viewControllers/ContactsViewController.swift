@@ -53,10 +53,13 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let indexPath = self.collectionView?.indexPath(for: sender as! ImageViewCell){
-            let nextScreen = segue.destination as? ContactDetailsViewController
-            nextScreen?.contactImage = contactsImages[indexPath.item]
+        if segue.identifier == "showContactSeg" {
+            if let indexPath = self.collectionView?.indexPath(for: sender as! ImageViewCell){
+                let nextScreen = segue.destination as? ContactDetailsViewController
+                nextScreen?.contactImage = contactsImages[indexPath.item]
+            }
         }
+        
     }
 
     // MARK: UICollectionViewDataSource
@@ -72,22 +75,35 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageViewCell
-        
-        cell.backgroundColor = UIColor.black
-        if let image = UIImage(named: contactsImages[indexPath.item].1.imageURL!){
-            cell.image.image = image
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addContactCell", for: indexPath)
+            return cell
+            
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageViewCell
+            cell.backgroundColor = UIColor.black
+            if let image = UIImage(named: contactsImages[indexPath.item].1.imageURL!){
+                cell.image.image = image
+            }
+            
+            return cell
         }
+
         
         
         // Configure the cell
     
-        return cell
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "showContactSeg", sender: self.collectionView?.cellForItem(at: indexPath))
+        if indexPath.item == 0 {
+            performSegue(withIdentifier: "addContactSeg", sender: self.collectionView?.cellForItem(at: indexPath))
+        }else{
+            performSegue(withIdentifier: "showContactSeg", sender: self.collectionView?.cellForItem(at: indexPath))
+        }
+        
         
     }
 

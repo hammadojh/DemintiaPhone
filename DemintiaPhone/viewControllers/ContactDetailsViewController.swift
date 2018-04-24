@@ -30,27 +30,34 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
     
     @IBAction func callButtonClicked(_ sender: Any) {
         
+        print("call")
+        
         // call
         
         let url: NSURL = URL(string: "TEL://7206063096")! as NSURL
-        UIApplication.shared.open(url as URL, options: [:], completionHandler:{ (called:Bool) -> () in
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        
+    }
+    
+    
+    @IBAction func callMeBtnClicked(_ sender: Any) {
+        
+        print("call me")
+    
+        if MFMessageComposeViewController.canSendText(){
+            let controller = MFMessageComposeViewController()
             
-            // message
-            
-            if called {
-                if MFMessageComposeViewController.canSendText(){
-                    let controller = MFMessageComposeViewController()
-                    controller.body = "Hello..Dongyao is calling you from 2018/4/22"
-                    controller.recipients = ["7206063096"]
-                    controller.messageComposeDelegate = self
-                    self.present(controller, animated: false, completion: nil)
-                }else{
-                    print("can not send text")
-                }
+            if let date = contactImage?.1.date, let name = contactImage?.0.name {
+                controller.body = "Hello..please call me ..  I recognize you from \(date) .. and after the call please send any relevent information to this link https://drive.google.com/open?id=1IRR6KMFTOomqUqkge4XITXGcXhSreW6U. Thank you  \(name)"
             }
-        })
+            
         
-        
+            controller.recipients = ["7206063096"]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: false, completion: nil)
+        }else{
+            print("can not send text")
+        }
         
     }
     
@@ -61,6 +68,12 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
     }
     
     
+    @IBAction func linkClicked(_ sender: Any) {
+        
+        let url: NSURL = URL(string: "https://drive.google.com/open?id=1IRR6KMFTOomqUqkge4XITXGcXhSreW6U")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
