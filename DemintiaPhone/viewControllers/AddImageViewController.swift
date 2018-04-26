@@ -13,8 +13,9 @@ import UIKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @IBOutlet var imageView: UIImageView!
-    @IBOutlet var chooseBuuton: UIButton!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var chooseButton: UIButton!
     var imagePicker = UIImagePickerController()
     
     @IBAction func btnClicked() {
