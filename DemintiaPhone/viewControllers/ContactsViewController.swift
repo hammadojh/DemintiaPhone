@@ -61,12 +61,11 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        print(indexPath.item)
         
         if indexPath.item == contactsImages.count {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addContactCell", for: indexPath)
             cell.layer.borderWidth = 1
-            cell.layer.borderColor = UIColor.gray.cgColor
+            cell.layer.borderColor = UIColor(red:0.65, green:0.56, blue:0.92, alpha:1.0).cgColor
             return cell
             
         }else{

@@ -38,12 +38,9 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
     
     @IBAction func callButtonClicked(_ sender: Any) {
         
-        print("call")
-        
         // call
         
         let phone = "TEL://"+(contactImage?.0.phone)!
-        print(phone)
         let url: NSURL = URL(string: phone)! as NSURL
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         
@@ -52,7 +49,6 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
     
     @IBAction func callMeBtnClicked(_ sender: Any) {
         
-        print("call me")
     
         if MFMessageComposeViewController.canSendText(){
             let controller = MFMessageComposeViewController()
@@ -65,8 +61,6 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
             controller.recipients = ["7206063096"]
             controller.messageComposeDelegate = self
             self.present(controller, animated: false, completion: nil)
-        }else{
-            print("can not send text")
         }
         
     }

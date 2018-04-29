@@ -18,7 +18,6 @@ class ImagesHistoryTableViewController: UITableViewController,UINavigationContro
     // image picker delegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info.count)
         
         var url:String?
         var date:String?

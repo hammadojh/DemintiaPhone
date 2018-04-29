@@ -56,7 +56,6 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
     
     @IBAction func submitClicked(_ sender: Any) {
         
-        print(contactsImages.count)
         
         // get information
         
@@ -74,7 +73,6 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
         
         // dismiss the modal
         
-        print(contactsImages.count)
         
         dismiss(animated: true, completion: { () -> Void in
             self.collectionView?.reloadData()
@@ -92,7 +90,6 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
     // image picker delegate
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info.count)
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .scaleAspectFit
             imageView.image = pickedImage
