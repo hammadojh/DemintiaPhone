@@ -16,6 +16,19 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
     //contacts table view
     var collectionView:UICollectionView?
     
+<<<<<<< HEAD
+    
+    @IBOutlet weak var contactYear: UITextField!
+    //@IBOutlet weak var contactNumber: UITextField!
+    //@IBOutlet weak var contactName: UITextField!
+    //@IBOutlet weak var imageView: UIImageView!
+    //@IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var chooseButton: UIButton!
+    //@IBOutlet weak var chooseButton: UIButton!
+    //@IBOutlet weak var addImage: UIButton!
+    var imagePicker = UIImagePickerController()
+=======
     // outlets
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -31,8 +44,20 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
         super.viewDidLoad()
         imagePicker.delegate = self
     }
+>>>>>>> bea252d865e33b5cda2f517d31db4bb9d58296ad
     
     @IBAction func btnClicked() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    /*@IBAction func btnClicked(_ sender: UIButton) {
         
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
             
@@ -45,6 +70,29 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
             present(imagePicker, animated: true, completion: nil)
         }
     }
+    @IBAction func btnClicked() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    @IBAction func btnClicked(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }*/
     
     @IBAction func submitClicked(_ sender: Any) {
         
@@ -95,5 +143,12 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    // Data Structure
+    /*private var contacts = [Contact]()
+    private var contactsImages = [(Contact,ContactImage)]()
+    
+    contacts.append(Contact(name: "Jeff", phone: "3039288922", contactImages: [ContactImage(imageURL: "jeff_1", date: "1997"),ContactImage(imageURL: "jeff_2", date: "2010")]))*/
+    
 }
 

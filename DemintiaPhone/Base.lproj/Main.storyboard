@@ -265,7 +265,7 @@
         <!--Add Contact-->
         <scene sceneID="yhQ-mL-pFi">
             <objects>
-                <viewController title="Add Contact" id="Lfl-H6-V2O" customClass="AddImageViewController" customModule="DemintiaPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Contact" id="Lfl-H6-V2O" customClass="AddImageViewController" customModule="DemintiaPhone" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JAq-lE-Wu2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -335,7 +335,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+<<<<<<< HEAD
+                                    <action selector="btnClicked" destination="Lfl-H6-V2O" eventType="touchUpInside" id="uBR-m7-jXd"/>
+=======
                                     <action selector="btnClicked" destination="Lfl-H6-V2O" eventType="touchUpInside" id="aaP-Xd-8kQ"/>
+>>>>>>> bea252d865e33b5cda2f517d31db4bb9d58296ad
                                 </connections>
                             </button>
                         </subviews>
@@ -351,12 +355,17 @@
                         <barButtonItem key="rightBarButtonItem" id="vot-13-zva"/>
                     </navigationItem>
                     <connections>
+<<<<<<< HEAD
+                        <outlet property="chooseButton" destination="svF-As-5BK" id="qEr-E5-0GP"/>
+                        <outlet property="imageView" destination="kJu-23-WA1" id="Xkj-gb-J0Q"/>
+=======
                         <outlet property="addImageButton" destination="svF-As-5BK" id="b52-yL-BSc"/>
                         <outlet property="imageView" destination="kJu-23-WA1" id="g4h-qU-kjV"/>
                         <outlet property="nameField" destination="CEg-Rw-Mm2" id="Fq6-FB-cs7"/>
                         <outlet property="numberField" destination="mkl-v6-TSl" id="QxJ-aE-pog"/>
                         <outlet property="submitBtn" destination="JEp-7b-Q9T" id="i3o-CL-lGN"/>
                         <outlet property="yearField" destination="k0Y-7F-KXl" id="4aK-Kh-6SZ"/>
+>>>>>>> bea252d865e33b5cda2f517d31db4bb9d58296ad
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TD5-5m-Nsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
