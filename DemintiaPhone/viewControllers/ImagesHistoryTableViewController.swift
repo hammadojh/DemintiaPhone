@@ -8,79 +8,14 @@
 
 import UIKit
 
-class ImagesHistoryTableViewController: UITableViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ImagesHistoryTableViewController: UITableViewController {
     
-    var contact : Contact!
-    
-    private var imagePicker = UIImagePickerController()
+    var images = [ContactImage]()
 
-    @IBAction func addClicked(_ sender: Any) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .photoLibrary
-            UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-            imagePicker.modalPresentationStyle = .popover
-            
-            //show
-            present(imagePicker, animated: true, completion: nil)
-        }
-        
-    }
-    
-    // image picker delegate
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print(info.count)
-        
-        var url:String?
-        var date:String?
-        
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
-            // store image and get url
-            
-            let imageName = contact.name! + "_\(contact.contactImages.count)"
-            url = store(image: imageName, imageFile: pickedImage).1.absoluteString
-            
-            
-        }
-        
-        dismiss(animated: true, completion: { (() -> Void).self
-            
-            // prompt for date
-            
-            self.showAlert(title: "Enter Date", message: "Enter the date of the image", completion: { textField in (()->Void).self
-                
-                // get date value
-                
-                date = textField.text!
-                
-                // add image and date to array
-                
-                let newContactImage = ContactImage(imageURL: url!, date: date!)
-                self.contact.contactImages.append(newContactImage)
-                contactsImages.append((self.contact,newContactImage))
-                self.tableView.reloadData()
-                
-            })
-            
-        })
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.rowHeight = 150
-        imagePicker.delegate = self
-
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -103,44 +38,67 @@ class ImagesHistoryTableViewController: UITableViewController,UINavigationContro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return contact.contactImages.count
+        return images.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "imageDetailsCell", for: indexPath) as! ImageDetailsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "imageDetailsCell", for: indexPath)
 
         // Configure the cell...
         
-        if let image = UIImage(named: contact.contactImages[indexPath.item].imageURL!) {
+        if let image = UIImage(named: images[indexPath.item].imageURL!) {
             cell.imageView?.image = image
         }else{
-            cell.imageView?.image = loadImage(imageUrl: (contact.contactImages[indexPath.item].imageURL)!)
+            cell.imageView?.image = loadImage(imageUrl: (images[indexPath.item].imageURL)!)
         }
-        
-        cell.dateLabel?.text = contact.contactImages[indexPath.item].date!
-        
-        
 
         return cell
     }
     
-    // helper functions
-    
-    func showAlert(title:String, message:String, completion:@escaping ((_ textField:UITextField)->Void)){
-        
-        //1. Create the alert controller.
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        //2. Add the text field. You can configure it however you need.
-        alert.addTextField(configurationHandler: nil)
-        
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            completion(textField!)
-        }))
-        
-        // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
