@@ -46,7 +46,15 @@ class ImagesHistoryTableViewController: UITableViewController {
 
         // Configure the cell...
         
+<<<<<<< HEAD
         cell.imageView?.image = UIImage(named: images[indexPath.item].imageURL!)
+=======
+        if let image = UIImage(named: images[indexPath.item].imageURL!) {
+            cell.imageView?.image = image
+        }else{
+            cell.imageView?.image = loadImage(imageUrl: (images[indexPath.item].imageURL)!)
+        }
+>>>>>>> parent of d86eef2... Add image to contact works
 
         return cell
     }
