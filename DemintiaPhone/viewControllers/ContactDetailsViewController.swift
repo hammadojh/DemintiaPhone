@@ -42,8 +42,9 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
         
         // call
         
-        let phone = contactImage?.0.phone
-        let url: NSURL = URL(string: "TEL://"+phone!)! as NSURL
+        let phone = "TEL://"+(contactImage?.0.phone)!
+        print(phone)
+        let url: NSURL = URL(string: phone)! as NSURL
         UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         
     }
