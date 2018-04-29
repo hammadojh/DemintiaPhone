@@ -16,6 +16,8 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var imgButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageDateLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -23,7 +25,13 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
         
         if let imageURL = UIImage(named: (contactImage?.1.imageURL)!){
             imageView.image = imageURL
+        }else{
+            imageView.image = loadImage(imageUrl: (contactImage?.1.imageURL)!)
         }
+        
+        nameLabel.text = contactImage?.0.name
+        imageDateLabel.text = contactImage?.1.date
+        
     }
     
     // Call
@@ -92,7 +100,7 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextScreen = segue.destination as! ImagesHistoryTableViewController
-        nextScreen.images = (contactImage?.0.contactImages)!
+        nextScreen.contact = contactImage?.0
     }
     
 }

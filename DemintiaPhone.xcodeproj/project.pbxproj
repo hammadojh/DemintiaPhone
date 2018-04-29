@@ -16,12 +16,13 @@
 		070D3AC9207AA33E00B7026D /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3AC8207AA33E00B7026D /* ContactsViewController.swift */; };
 		070D3ACD207AB36200B7026D /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3ACC207AB36200B7026D /* ImageViewCell.swift */; };
 		070D3ACF207AB87C00B7026D /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070D3ACE207AB87C00B7026D /* Contact.swift */; };
+		071BEF8C20953B0C009355B6 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BEF8B20953B0C009355B6 /* AddImageViewController.swift */; };
+		071BEF8E209559B2009355B6 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BEF8D209559B2009355B6 /* HelperFunctions.swift */; };
 		076A2055208D1E9E00E0515F /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A2054208D1E9E00E0515F /* ContactDetailsViewController.swift */; };
 		076A2057208D201D00E0515F /* ContactImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A2056208D201D00E0515F /* ContactImage.swift */; };
 		076A205C208D2C0200E0515F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076A205B208D2C0200E0515F /* MessageUI.framework */; };
 		076A205E208D31A500E0515F /* ImagesHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A205D208D31A500E0515F /* ImagesHistoryTableViewController.swift */; };
 		076A2060208D359300E0515F /* ImageDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A205F208D359300E0515F /* ImageDetailsTableViewCell.swift */; };
-		7E7A9674208DB276004BAB98 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7A9673208DB276004BAB98 /* AddImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +58,13 @@
 		070D3AC8207AA33E00B7026D /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		070D3ACC207AB36200B7026D /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		070D3ACE207AB87C00B7026D /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		071BEF8B20953B0C009355B6 /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
+		071BEF8D209559B2009355B6 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		076A2054208D1E9E00E0515F /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		076A2056208D201D00E0515F /* ContactImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImage.swift; sourceTree = "<group>"; };
 		076A205B208D2C0200E0515F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		076A205D208D31A500E0515F /* ImagesHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesHistoryTableViewController.swift; sourceTree = "<group>"; };
 		076A205F208D359300E0515F /* ImageDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsTableViewCell.swift; sourceTree = "<group>"; };
-		7E7A9673208DB276004BAB98 /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				070D3A9A207AA27300B7026D /* AppDelegate.swift */,
+				071BEF8D209559B2009355B6 /* HelperFunctions.swift */,
 				070D3A9E207AA27300B7026D /* Main.storyboard */,
 				076A2058208D202B00E0515F /* models */,
 				076A2059208D204D00E0515F /* viewControllers */,
@@ -160,7 +163,7 @@
 				070D3AC8207AA33E00B7026D /* ContactsViewController.swift */,
 				076A2054208D1E9E00E0515F /* ContactDetailsViewController.swift */,
 				076A205D208D31A500E0515F /* ImagesHistoryTableViewController.swift */,
-				7E7A9673208DB276004BAB98 /* AddImageViewController.swift */,
+				071BEF8B20953B0C009355B6 /* AddImageViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -315,9 +318,10 @@
 			files = (
 				076A2055208D1E9E00E0515F /* ContactDetailsViewController.swift in Sources */,
 				070D3ACF207AB87C00B7026D /* Contact.swift in Sources */,
-				7E7A9674208DB276004BAB98 /* AddImageViewController.swift in Sources */,
+				071BEF8C20953B0C009355B6 /* AddImageViewController.swift in Sources */,
 				076A2057208D201D00E0515F /* ContactImage.swift in Sources */,
 				070D3ACD207AB36200B7026D /* ImageViewCell.swift in Sources */,
+				071BEF8E209559B2009355B6 /* HelperFunctions.swift in Sources */,
 				070D3AC9207AA33E00B7026D /* ContactsViewController.swift in Sources */,
 				070D3A9B207AA27300B7026D /* AppDelegate.swift in Sources */,
 				076A2060208D359300E0515F /* ImageDetailsTableViewCell.swift in Sources */,
