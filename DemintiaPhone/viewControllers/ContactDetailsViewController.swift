@@ -23,6 +23,8 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
         
         if let imageURL = UIImage(named: (contactImage?.1.imageURL)!){
             imageView.image = imageURL
+        }else{
+            imageView.image = loadImage(imageUrl: (contactImage?.1.imageURL)!)
         }
     }
     

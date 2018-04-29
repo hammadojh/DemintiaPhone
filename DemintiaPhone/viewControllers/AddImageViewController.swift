@@ -11,31 +11,92 @@ import Foundation
 import UIKit
 
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class AddImageViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    //contacts table view
+    var collectionView:UICollectionView?
     
+    // outlets
+    @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var chooseButton: UIButton!
-    var imagePicker = UIImagePickerController()
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var numberField: UITextField!
+    @IBOutlet weak var yearField: UITextField!
+    @IBOutlet weak var submitBtn: UIButton!
+    
+    // image picker
+    private var imagePicker = UIImagePickerController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+    }
     
     @IBAction func btnClicked() {
         
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("Button capture")
             
-            imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum;
             imagePicker.allowsEditing = false
-            
-            self.present(imagePicker, animated: true, completion: nil)
+            imagePicker.sourceType = .photoLibrary
+            UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+            imagePicker.modalPresentationStyle = .popover
+
+            //show
+            present(imagePicker, animated: true, completion: nil)
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true, completion: { () -> Void in
-            
+    @IBAction func submitClicked(_ sender: Any) {
+        
+        print(contactsImages.count)
+        
+        // get information
+        
+        let name = nameField.text!
+        let phone = numberField.text!
+        
+        let imageName = nameField.text! + "_1"
+        let image = store(image: imageName, imageFile: imageView.image!)
+                
+        let contactImages = [ContactImage(imageURL: image.1.absoluteString, date: yearField.text!)]
+        
+        // add new contact to the array
+        
+        let contact = Contact(name: name, phone: phone, contactImages: contactImages)
+        contacts.append(contact)
+        contactsImages.append((contact,contactImages[0]))
+        
+        
+        // dismiss the modal
+        
+        print(contactsImages.count)
+        
+        dismiss(animated: true, completion: { () -> Void in
+            self.collectionView?.reloadData()
         })
         
-        imageView.image = image
+    }
+    
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // image picker delegate
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print(info.count)
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
+
