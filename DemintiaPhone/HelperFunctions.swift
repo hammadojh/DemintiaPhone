@@ -27,7 +27,7 @@ public func loadImage(image imageName: String) -> (UIImage,URL) {
     return (UIImage(),URL(fileURLWithPath: ""))
 }
 
-public func loadImage(imageUrl : String) -> UIImage {
+public func loadImage(imageUrl : String) -> UIImage? {
     
     let url = URL(string: imageUrl)
     
@@ -36,7 +36,8 @@ public func loadImage(imageUrl : String) -> UIImage {
         let image: UIImage = UIImage(data: imageData, scale: UIScreen.main.scale) {
         return image
     }
-    return UIImage(named: "")!
+    
+    return nil
 }
 
 public func store(image imageName:String, imageFile:UIImage) -> (UIImage,URL){

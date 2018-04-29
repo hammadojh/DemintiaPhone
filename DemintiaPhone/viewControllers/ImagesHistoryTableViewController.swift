@@ -14,20 +14,6 @@ class ImagesHistoryTableViewController: UITableViewController,UINavigationContro
     
     private var imagePicker = UIImagePickerController()
 
-    @IBAction func addClicked(_ sender: Any) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            
-            imagePicker.allowsEditing = false
-            imagePicker.sourceType = .photoLibrary
-            UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-            imagePicker.modalPresentationStyle = .popover
-            
-            //show
-            present(imagePicker, animated: true, completion: nil)
-        }
-        
-    }
     
     // image picker delegate
     
@@ -73,6 +59,10 @@ class ImagesHistoryTableViewController: UITableViewController,UINavigationContro
         dismiss(animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
     
     
     override func viewDidLoad() {
@@ -103,25 +93,46 @@ class ImagesHistoryTableViewController: UITableViewController,UINavigationContro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return contact.contactImages.count
+        return contact.contactImages.count+1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "imageDetailsCell", for: indexPath) as! ImageDetailsTableViewCell
-
-        // Configure the cell...
         
-        if let image = UIImage(named: contact.contactImages[indexPath.item].imageURL!) {
-            cell.imageView?.image = image
+        if indexPath.item == contact.contactImages.count{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addImageCell")
+            return cell!
+            
         }else{
-            cell.imageView?.image = loadImage(imageUrl: (contact.contactImages[indexPath.item].imageURL)!)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imageDetailsCell", for: indexPath) as! ImageDetailsTableViewCell
+            
+            // Configure the cell...
+            if let image = UIImage(named: contact.contactImages[indexPath.item].imageURL!) {
+                cell.imageView?.image = image
+            }else{
+                cell.imageView?.image = loadImage(imageUrl: (contact.contactImages[indexPath.item].imageURL)!)
+            }
+            
+            cell.dateLabel?.text = contact.contactImages[indexPath.item].date!
+            
+            return cell
         }
         
-        cell.dateLabel?.text = contact.contactImages[indexPath.item].date!
-        
-        
-
-        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.item == contact.contactImages.count{
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+                
+                imagePicker.allowsEditing = false
+                imagePicker.sourceType = .photoLibrary
+                UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                imagePicker.modalPresentationStyle = .popover
+                
+                //show
+                present(imagePicker, animated: true, completion: nil)
+            }
+        }
     }
     
     // helper functions

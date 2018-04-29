@@ -56,15 +56,17 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contactsImages.count
+        return contactsImages.count+1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         print(indexPath.item)
         
-        if indexPath.item == 0 {
+        if indexPath.item == contactsImages.count {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addContactCell", for: indexPath)
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.gray.cgColor
             return cell
             
         }else{
@@ -75,7 +77,9 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
                 cell.image.image = image
             }else{
                 let imageUrl = contactsImages[indexPath.item].1.imageURL
-                cell.image.image = loadImage(imageUrl: imageUrl!)
+                if let image =  loadImage(imageUrl: imageUrl!) {
+                    cell.image.image = image
+                }
             }
             
             return cell
@@ -88,7 +92,7 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if indexPath.item == 0 {
+        if indexPath.item == contactsImages.count {
             performSegue(withIdentifier: "addContactSeg", sender: self.collectionView?.cellForItem(at: indexPath))
         }else{
             performSegue(withIdentifier: "showContactSeg", sender: self.collectionView?.cellForItem(at: indexPath))

@@ -22,7 +22,7 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var numberField: UITextField!
     @IBOutlet weak var yearField: UITextField!
-    @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var submitBtn: UIBarButtonItem!
     
     // image picker
     private var imagePicker = UIImagePickerController()
@@ -30,6 +30,7 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        submitBtn.isEnabled = false
     }
     
     @IBAction func btnClicked() {
@@ -44,6 +45,13 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
             //show
             present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        
+        dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func submitClicked(_ sender: Any) {
@@ -74,11 +82,12 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
         
     }
     
-    @IBAction func cancelButtonClicked(_ sender: Any) {
+    @IBAction func fieldDidFinishEditing(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+        enableSubmitBtn()
         
     }
+    
     
     // image picker delegate
     
@@ -89,11 +98,30 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
             imageView.image = pickedImage
         }
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.enableSubmitBtn()
+        })
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    // helper funcrtions
+    
+    func enableSubmitBtn(){
+        
+    // check if all is filled
+        
+        if let _ = nameField.text, let _ = nameField.text, let _ = yearField.text, let _ = imageView.image
+        {
+            submitBtn.isEnabled = true
+            
+        }
+        
+    }
+    
+    
+    
 }
 
