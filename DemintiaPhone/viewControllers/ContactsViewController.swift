@@ -15,32 +15,15 @@ fileprivate let numberOfImagesToShow = 2 // the max number of images to show for
 fileprivate var currentImageIndex = 0 // the index of the current image to show
 
 // Data Structure
-private var contacts = [Contact]()
-private var contactsImages = [(Contact,ContactImage)]()
 
 class ImagesController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // read contacts
-        
-        contacts.append(Contact(name: "Ali", phone: "3033123112", contactImages: [ContactImage(imageURL: "moh_1", date: "1997"),ContactImage(imageURL: "moh_2", date: "2010")]))
-            
-        contacts.append(Contact(name: "Tom", phone: "3039287382", contactImages: [ContactImage(imageURL: "tom_1", date: "1997"),ContactImage(imageURL: "tom_2", date: "2010")]))
-        
-        contacts.append(Contact(name: "Obama", phone: "3039284324", contactImages: [ContactImage(imageURL: "obama_1", date: "1997"),ContactImage(imageURL: "obama_2", date: "2010")]))
-        
-        contacts.append(Contact(name: "Jeff", phone: "3039288922", contactImages: [ContactImage(imageURL: "jeff_1", date: "1997"),ContactImage(imageURL: "jeff_2", date: "2010")]))
-        
-        // initialzie contactsImages
-        for contact in contacts {
-            for image in contact.contactImages {
-                contactsImages.append((contact,image))
-            }
-        }
-
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +41,9 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
                 let nextScreen = segue.destination as? ContactDetailsViewController
                 nextScreen?.contactImage = contactsImages[indexPath.item]
             }
+        }else{
+            let nextScreen = segue.destination as? AddImageViewController
+            nextScreen?.collectionView = self.collectionView
         }
         
     }
@@ -75,6 +61,8 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        print(indexPath.item)
+        
         if indexPath.item == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addContactCell", for: indexPath)
             return cell
@@ -82,14 +70,16 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageViewCell
             cell.backgroundColor = UIColor.black
+            
             if let image = UIImage(named: contactsImages[indexPath.item].1.imageURL!){
                 cell.image.image = image
+            }else{
+                let imageUrl = contactsImages[indexPath.item].1.imageURL
+                cell.image.image = loadImage(imageUrl: imageUrl!)
             }
             
             return cell
         }
-
-        
         
         // Configure the cell
     
