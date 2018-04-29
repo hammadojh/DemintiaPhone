@@ -225,7 +225,7 @@
         <!--Add Contact-->
         <scene sceneID="yhQ-mL-pFi">
             <objects>
-                <viewController title="Add Contact" id="Lfl-H6-V2O" customClass="AddImageViewController" customModule="DemintiaPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Contact" id="Lfl-H6-V2O" customClass="AddImageViewController" customModule="DemintiaPhone" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JAq-lE-Wu2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,14 +291,17 @@
                                 <state key="normal" title="Add Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnClicked" destination="Lfl-H6-V2O" eventType="touchUpInside" id="uBR-m7-jXd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Sf2-Yh-qMf"/>
                     </view>
                     <connections>
-                        <outlet property="chooseButton" destination="svF-As-5BK" id="9NU-sr-j7V"/>
-                        <outlet property="imageView" destination="kJu-23-WA1" id="hcg-h4-AEp"/>
+                        <outlet property="chooseButton" destination="svF-As-5BK" id="qEr-E5-0GP"/>
+                        <outlet property="imageView" destination="kJu-23-WA1" id="Xkj-gb-J0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TD5-5m-Nsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
