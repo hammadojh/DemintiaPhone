@@ -54,18 +54,15 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
         
         let name = nameField.text!
         let phone = numberField.text!
-        
         let imageName = nameField.text! + "_1"
         let image = store(image: imageName, imageFile: imageView.image!)
-                
-        let contactImages = [ContactImage(imageURL: image.1.absoluteString, date: yearField.text!)]
         
         // add new contact to the array
         
+        let contactImages = [ContactImage(imageURL: image.1.absoluteString, date: yearField.text!)]
         let contact = Contact(name: name, phone: phone, contactImages: contactImages)
         contacts.append(contact)
         contactsImages.append((contact,contactImages[0]))
-        
         
         // dismiss the modal
         
