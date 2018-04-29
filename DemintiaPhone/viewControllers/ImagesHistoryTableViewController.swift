@@ -46,11 +46,7 @@ class ImagesHistoryTableViewController: UITableViewController {
 
         // Configure the cell...
         
-        if let image = UIImage(named: images[indexPath.item].imageURL!) {
-            cell.imageView?.image = image
-        }else{
-            cell.imageView?.image = loadImage(imageUrl: (images[indexPath.item].imageURL)!)
-        }
+        cell.imageView?.image = UIImage(named: images[indexPath.item].imageURL!)
 
         return cell
     }

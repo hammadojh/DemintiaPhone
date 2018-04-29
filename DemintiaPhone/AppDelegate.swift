@@ -8,40 +8,14 @@
 
 import UIKit
 
-var contacts = [Contact]()
-var contactsImages = [(Contact,ContactImage)]()
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // read contacts
-        
-        contacts.append(Contact(name: "Ali", phone: "3033123112", contactImages: [ContactImage(imageURL: "moh_1", date: "1997"),ContactImage(imageURL: "moh_2", date: "2010")]))
-        
-        contacts.append(Contact(name: "Tom", phone: "3039287382", contactImages: [ContactImage(imageURL: "tom_1", date: "1997"),ContactImage(imageURL: "tom_2", date: "2010")]))
-        
-        contacts.append(Contact(name: "Obama", phone: "3039284324", contactImages: [ContactImage(imageURL: "obama_1", date: "1997"),ContactImage(imageURL: "obama_2", date: "2010")]))
-        
-        contacts.append(Contact(name: "Jeff", phone: "3039288922", contactImages: [ContactImage(imageURL: "jeff_1", date: "1997"),ContactImage(imageURL: "jeff_2", date: "2010")]))
-        
-        // contact images
-        
-        // initialzie contactsImages
-        for contact in contacts {
-            for image in contact.contactImages {
-                contactsImages.append((contact,image))
-            }
-        }
-        
-        
         return true
     }
 
