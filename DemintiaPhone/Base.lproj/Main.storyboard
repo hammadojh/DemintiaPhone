@@ -86,7 +86,13 @@
                             <outlet property="delegate" destination="Z3R-66-prB" id="VGP-Ov-bgh"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Dimentia Phone" id="8K9-DB-b8t"/>
+                    <navigationItem key="navigationItem" title="Dimentia Phone" id="8K9-DB-b8t">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="wwz-aK-tsl">
+                            <connections>
+                                <segue destination="NYB-7D-6eq" kind="show" id="Pd1-mi-fBB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="RHG-Vn-JNR" kind="show" identifier="showContactSeg" id="YJx-Ke-6rn"/>
                         <segue destination="ObX-1r-FLX" kind="presentation" identifier="addContactSeg" id="EGv-h8-q0f"/>
@@ -435,6 +441,57 @@
             </objects>
             <point key="canvasLocation" x="584.79999999999995" y="110.19490254872565"/>
         </scene>
+        <!--About-->
+        <scene sceneID="qwM-ox-7tT">
+            <objects>
+                <viewController title="About" id="NYB-7D-6eq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0el-TL-927">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="3EE-bc-7eH">
+                                <rect key="frame" x="121" y="90" width="132" height="132"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="132" id="M8m-Zz-aeI"/>
+                                    <constraint firstAttribute="width" constant="132" id="mRK-xY-2CU"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="All Rights Reserved © 2018." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yuN-n4-iPg">
+                                <rect key="frame" x="16" y="608" width="343" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Lxc-oo-U5Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-YQ-jL7">
+                                <rect key="frame" x="16" y="252" width="343" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">This app was done by Vicki Everts, Dongyao Wang and Omar Hammad as a course project for a Input, accessibility and interaction course at CU boulder taught by Dr. Shaun Kane.  </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nOC-YQ-jL7" firstAttribute="centerY" secondItem="0el-TL-927" secondAttribute="centerY" id="1tb-G3-XF7"/>
+                            <constraint firstItem="yuN-n4-iPg" firstAttribute="trailing" secondItem="nOC-YQ-jL7" secondAttribute="trailing" id="60j-ro-PKe"/>
+                            <constraint firstItem="nOC-YQ-jL7" firstAttribute="top" secondItem="3EE-bc-7eH" secondAttribute="bottom" constant="30" id="8LP-BJ-vhc"/>
+                            <constraint firstItem="3EE-bc-7eH" firstAttribute="top" secondItem="uA6-D9-4U9" secondAttribute="top" constant="26" id="CM2-NF-iGb"/>
+                            <constraint firstItem="uA6-D9-4U9" firstAttribute="bottom" secondItem="yuN-n4-iPg" secondAttribute="bottom" constant="17" id="R3b-H9-w0c"/>
+                            <constraint firstItem="3EE-bc-7eH" firstAttribute="centerX" secondItem="0el-TL-927" secondAttribute="centerX" id="ZIN-js-jnc"/>
+                            <constraint firstItem="yuN-n4-iPg" firstAttribute="leading" secondItem="nOC-YQ-jL7" secondAttribute="leading" id="cmP-x5-TNF"/>
+                            <constraint firstItem="nOC-YQ-jL7" firstAttribute="leading" secondItem="0el-TL-927" secondAttribute="leadingMargin" id="d4i-0v-cid"/>
+                            <constraint firstItem="nOC-YQ-jL7" firstAttribute="centerX" secondItem="3EE-bc-7eH" secondAttribute="centerX" id="oNl-Ms-oYw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uA6-D9-4U9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPi-eG-9iE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="584.79999999999995" y="866.71664167916049"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z50-rU-3Hu">
             <objects>
@@ -461,5 +518,6 @@
     </scenes>
     <resources>
         <image name="FECC00" width="16" height="16"/>
+        <image name="icon" width="1667" height="1667"/>
     </resources>
 </document>
