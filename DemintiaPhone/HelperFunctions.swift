@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+//consts
+
+public let CORNER_RADIUS : CGFloat = 5
+
 // helper functions
 
 public func loadImage(image imageName: String) -> (UIImage,URL) {

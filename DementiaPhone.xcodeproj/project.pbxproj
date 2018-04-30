@@ -23,6 +23,7 @@
 		076A205C208D2C0200E0515F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076A205B208D2C0200E0515F /* MessageUI.framework */; };
 		076A205E208D31A500E0515F /* ImagesHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A205D208D31A500E0515F /* ImagesHistoryTableViewController.swift */; };
 		076A2060208D359300E0515F /* ImageDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076A205F208D359300E0515F /* ImageDetailsTableViewCell.swift */; };
+		07F9A00E2096A87900EAED66 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F9A00D2096A87900EAED66 /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		076A205B208D2C0200E0515F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		076A205D208D31A500E0515F /* ImagesHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesHistoryTableViewController.swift; sourceTree = "<group>"; };
 		076A205F208D359300E0515F /* ImageDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		07F9A00D2096A87900EAED66 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				076A2054208D1E9E00E0515F /* ContactDetailsViewController.swift */,
 				076A205D208D31A500E0515F /* ImagesHistoryTableViewController.swift */,
 				071BEF8B20953B0C009355B6 /* AddImageViewController.swift */,
+				07F9A00D2096A87900EAED66 /* AboutViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			files = (
 				076A2055208D1E9E00E0515F /* ContactDetailsViewController.swift in Sources */,
 				070D3ACF207AB87C00B7026D /* Contact.swift in Sources */,
+				07F9A00E2096A87900EAED66 /* AboutViewController.swift in Sources */,
 				071BEF8C20953B0C009355B6 /* AddImageViewController.swift in Sources */,
 				076A2057208D201D00E0515F /* ContactImage.swift in Sources */,
 				070D3ACD207AB36200B7026D /* ImageViewCell.swift in Sources */,

@@ -11,13 +11,17 @@ import MessageUI
 
 class ContactDetailsViewController: UIViewController, MFMessageComposeViewControllerDelegate{
     
-    
+    //model
     var contactImage:(Contact,ContactImage)?
+    
+    //outlets
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var imgButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageDateLabel: UILabel!
+    @IBOutlet weak var callButton: UIButton!
+    @IBOutlet weak var callMeBtn: UIButton!
+    @IBOutlet weak var sharedLinkBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -31,6 +35,11 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
         
         nameLabel.text = contactImage?.0.name
         imageDateLabel.text = contactImage?.1.date
+        
+        // btns ui
+        callButton.layer.cornerRadius = CORNER_RADIUS
+        callMeBtn.layer.cornerRadius = CORNER_RADIUS
+        sharedLinkBtn.layer.cornerRadius = CORNER_RADIUS*5
         
     }
     

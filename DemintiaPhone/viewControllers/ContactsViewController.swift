@@ -64,13 +64,15 @@ class ImagesController: UICollectionViewController, UICollectionViewDelegateFlow
         
         if indexPath.item == contactsImages.count {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addContactCell", for: indexPath)
-            cell.layer.borderWidth = 1
+            cell.layer.borderWidth = 3
             cell.layer.borderColor = UIColor(red:0.65, green:0.56, blue:0.92, alpha:1.0).cgColor
+            cell.layer.cornerRadius = CORNER_RADIUS
             return cell
             
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageViewCell
-            cell.backgroundColor = UIColor.black
+            cell.backgroundColor = UIColor.white
+            cell.layer.cornerRadius = 5
             
             if let image = UIImage(named: contactsImages[indexPath.item].1.imageURL!){
                 cell.image.image = image

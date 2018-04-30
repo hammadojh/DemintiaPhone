@@ -31,6 +31,10 @@ class AddImageViewController: UIViewController, UINavigationControllerDelegate, 
         super.viewDidLoad()
         imagePicker.delegate = self
         submitBtn.isEnabled = false
+        
+        // ui
+        
+        addImageButton.layer.cornerRadius = CORNER_RADIUS*3
     }
     
     @IBAction func btnClicked() {

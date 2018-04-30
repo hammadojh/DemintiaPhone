@@ -13,7 +13,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dimentia Phone-->
+        <!--Contacts-->
         <scene sceneID="bwj-GP-SHh">
             <objects>
                 <collectionViewController id="Z3R-66-prB" customClass="ImagesController" customModule="DemintiaPhone" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,29 +29,29 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="yoy-RJ-YLC" customClass="ImageViewCell" customModule="DemintiaPhone" customModuleProvider="target">
-                                <rect key="frame" x="91.5" y="0.0" width="192" height="192"/>
+                                <rect key="frame" x="91.5" y="202" width="192" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cmQ-eh-Pt8">
-                                            <rect key="frame" x="8" y="8" width="176" height="176"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="cmQ-eh-Pt8" secondAttribute="trailing" id="MUu-HJ-1Lj"/>
-                                    <constraint firstItem="cmQ-eh-Pt8" firstAttribute="top" secondItem="yoy-RJ-YLC" secondAttribute="topMargin" id="UTi-il-O3H"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="cmQ-eh-Pt8" secondAttribute="bottom" id="xZ9-4Z-nL3"/>
-                                    <constraint firstItem="cmQ-eh-Pt8" firstAttribute="leading" secondItem="yoy-RJ-YLC" secondAttribute="leadingMargin" id="ycw-EF-syl"/>
+                                    <constraint firstItem="cmQ-eh-Pt8" firstAttribute="leading" secondItem="yoy-RJ-YLC" secondAttribute="leading" id="B1v-Dk-bDZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="cmQ-eh-Pt8" secondAttribute="bottom" id="Z2M-Hm-xSw"/>
+                                    <constraint firstAttribute="trailing" secondItem="cmQ-eh-Pt8" secondAttribute="trailing" id="hXJ-ca-O1h"/>
+                                    <constraint firstItem="cmQ-eh-Pt8" firstAttribute="top" secondItem="yoy-RJ-YLC" secondAttribute="top" id="zEj-Rk-oe3"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="image" destination="cmQ-eh-Pt8" id="6cd-8Q-jhJ"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="addContactCell" id="I84-jI-inl">
-                                <rect key="frame" x="91.5" y="202" width="192" height="192"/>
+                                <rect key="frame" x="91.5" y="0.0" width="192" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="192" height="192"/>
@@ -67,10 +67,10 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="kIt-bV-c5W" secondAttribute="bottom" id="OUr-f3-svg"/>
-                                    <constraint firstAttribute="trailing" secondItem="kIt-bV-c5W" secondAttribute="trailing" id="igB-Jp-KZi"/>
-                                    <constraint firstItem="kIt-bV-c5W" firstAttribute="leading" secondItem="I84-jI-inl" secondAttribute="leading" id="mep-UC-dBo"/>
-                                    <constraint firstItem="kIt-bV-c5W" firstAttribute="top" secondItem="I84-jI-inl" secondAttribute="top" id="oyG-Uh-LMU"/>
+                                    <constraint firstAttribute="trailing" secondItem="kIt-bV-c5W" secondAttribute="trailing" id="QeD-NN-OZ3"/>
+                                    <constraint firstAttribute="bottom" secondItem="kIt-bV-c5W" secondAttribute="bottom" id="dRn-Pp-sIT"/>
+                                    <constraint firstItem="kIt-bV-c5W" firstAttribute="top" secondItem="I84-jI-inl" secondAttribute="top" id="dTx-Cf-vWD"/>
+                                    <constraint firstItem="kIt-bV-c5W" firstAttribute="leading" secondItem="I84-jI-inl" secondAttribute="leading" id="qeE-N1-fwJ"/>
                                 </constraints>
                             </collectionViewCell>
                         </cells>
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="Z3R-66-prB" id="VGP-Ov-bgh"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Dimentia Phone" id="8K9-DB-b8t">
+                    <navigationItem key="navigationItem" title="Contacts" id="8K9-DB-b8t">
                         <barButtonItem key="leftBarButtonItem" title="About" id="wwz-aK-tsl">
                             <connections>
                                 <segue destination="NYB-7D-6eq" kind="show" id="Pd1-mi-fBB"/>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="1333.5999999999999" y="108.39580209895054"/>
         </scene>
-        <!--ContactDetails-->
+        <!--Contact Details-->
         <scene sceneID="NkU-w3-aU9">
             <objects>
-                <viewController title="ContactDetails" id="RHG-Vn-JNR" customClass="ContactDetailsViewController" customModule="DemintiaPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Contact Details" id="RHG-Vn-JNR" customClass="ContactDetailsViewController" customModule="DemintiaPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qoU-d4-XnG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,16 +198,18 @@
                     </view>
                     <connections>
                         <outlet property="callButton" destination="Ibr-VM-ogz" id="T9l-oD-NYe"/>
+                        <outlet property="callMeBtn" destination="rIX-TK-7aQ" id="Tqc-Vr-IyQ"/>
                         <outlet property="imageDateLabel" destination="5L3-ad-imB" id="c4c-KN-hDF"/>
                         <outlet property="imageView" destination="DfS-qm-AV8" id="MSd-PS-7ik"/>
                         <outlet property="imgButton" destination="VZH-Ka-xSp" id="0jD-yr-C9n"/>
                         <outlet property="nameLabel" destination="un8-q5-vIX" id="HZl-Hn-pN8"/>
+                        <outlet property="sharedLinkBtn" destination="jWL-BT-edF" id="ZZs-ax-F6q"/>
                         <segue destination="4lZ-QZ-X6L" kind="push" identifier="showImagesHistory" id="S5R-4V-ed5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HV8-lX-lEy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2072.8000000000002" y="107.49625187406298"/>
+            <point key="canvasLocation" x="2090" y="110"/>
         </scene>
         <!--History-->
         <scene sceneID="b4R-2f-y2s">
@@ -232,20 +234,20 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaR-nY-se4">
-                                            <rect key="frame" x="16" y="113" width="57" height="30"/>
+                                            <rect key="frame" x="16" y="112" width="57" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="shadowOffset" width="0.0" height="1"/>
+                                            <size key="shadowOffset" width="0.0" height="2"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="MaR-nY-se4" firstAttribute="leading" secondItem="Trx-yF-PAR" secondAttribute="leadingMargin" id="75L-eJ-nEj"/>
                                         <constraint firstItem="u3K-eW-OVh" firstAttribute="top" secondItem="Trx-yF-PAR" secondAttribute="top" id="7c5-3U-nFH"/>
                                         <constraint firstItem="u3K-eW-OVh" firstAttribute="leading" secondItem="Trx-yF-PAR" secondAttribute="leading" id="Bvd-Dv-SMB"/>
                                         <constraint firstAttribute="trailing" secondItem="u3K-eW-OVh" secondAttribute="trailing" id="MJK-9b-tSL"/>
-                                        <constraint firstItem="MaR-nY-se4" firstAttribute="bottom" secondItem="Trx-yF-PAR" secondAttribute="bottomMargin" id="R6G-QY-Wry"/>
-                                        <constraint firstItem="MaR-nY-se4" firstAttribute="leading" secondItem="Trx-yF-PAR" secondAttribute="leadingMargin" id="UD3-9d-mAN"/>
+                                        <constraint firstItem="MaR-nY-se4" firstAttribute="bottom" secondItem="Trx-yF-PAR" secondAttribute="bottomMargin" id="eVg-YJ-VaU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -439,12 +441,12 @@
         <!--About-->
         <scene sceneID="qwM-ox-7tT">
             <objects>
-                <viewController title="About" id="NYB-7D-6eq" sceneMemberID="viewController">
+                <viewController title="About" id="NYB-7D-6eq" customClass="AboutViewController" customModule="DementiaPhone" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0el-TL-927">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="3EE-bc-7eH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="3EE-bc-7eH">
                                 <rect key="frame" x="121" y="90" width="132" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132" id="M8m-Zz-aeI"/>
@@ -482,6 +484,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uA6-D9-4U9"/>
                     </view>
+                    <connections>
+                        <outlet property="iconImageView" destination="3EE-bc-7eH" id="LlC-T8-fbf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPi-eG-9iE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
