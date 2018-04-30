@@ -27,15 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // read contacts
         
-        contacts.append(Contact(name: "Ali", phone: "18003310500", contactImages: [ContactImage(imageURL: "moh_1", date: "1997"),ContactImage(imageURL: "moh_2", date: "2010")]))
+        contacts.append(Contact(name: "Mohammed Ali", phone: "18003310500", contactImages: [ContactImage(imageURL: "moh_1", date: "1962"),ContactImage(imageURL: "moh_2", date: "2010")]))
         
-        contacts.append(Contact(name: "Tom", phone: "18003310500", contactImages: [ContactImage(imageURL: "tom_1", date: "1997"),ContactImage(imageURL: "tom_2", date: "2010")]))
+        contacts.append(Contact(name: "Tom Cruise", phone: "18003310500", contactImages: [ContactImage(imageURL: "tom_1", date: "1983"),ContactImage(imageURL: "tom_2", date: "2016")]))
         
-        contacts.append(Contact(name: "Obama", phone: "18003310500", contactImages: [ContactImage(imageURL: "obama_1", date: "1997"),ContactImage(imageURL: "obama_2", date: "2010")]))
+        contacts.append(Contact(name: "Barrak Obama", phone: "18003310500", contactImages: [ContactImage(imageURL: "obama_1", date: "1980"),ContactImage(imageURL: "obama_2", date: "2012")]))
         
-        contacts.append(Contact(name: "Jeff", phone: "18003310500", contactImages: [ContactImage(imageURL: "jeff_1", date: "1997"),ContactImage(imageURL: "jeff_2", date: "2010")]))
+        contacts.append(Contact(name: "Jeff Bezos", phone: "18003310500", contactImages: [ContactImage(imageURL: "jeff_1", date: "1988"),ContactImage(imageURL: "jeff_2", date: "2017")]))
         
-        // contact images
         
         // initialzie contactsImages
         for contact in contacts {
